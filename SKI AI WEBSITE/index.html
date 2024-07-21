@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKI AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ ('Gemini_Generated_Image_u37szwu37szwu37s') }}" alt="SKI AI Logo" id="logo">
+        <h1>Welcome to SKI AI</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('my_ai_company') }}">SKI AI</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>{{ greeting }}</h2>
+        <p>Welcome to the main page of SKI AI!</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 SKI AI</p>
+    </footer>
+</body>
+</html>
+

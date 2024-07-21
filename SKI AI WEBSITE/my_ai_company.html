@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKI AI - My AI Company</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ Gemini_Generated_Image_u37szwu37szwu37s }}" alt="SKI AI Logo" id="logo">
+        <h1>SKI AI</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('my_ai_company') }}">SKI AI</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Command Input</h2>
+        <form id="commandForm">
+            <label for="command">Enter Command:</label>
+            <input type="text" id="command" name="command" required>
+            <button type="submit">Send</button>
+        </form>
+        <div id="response"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 SKI AI</p>
+    </footer>
+    <script>
+        document.getElementById('commandForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const command = document.getElementById('command').value;
+            fetch('/command', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ command })
+            })
+            .then(response => response.json())
+            .then(data => document.getElementById('response').innerText = data.response)
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
+
